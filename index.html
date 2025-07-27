@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectraSage - Your Source for Mobile & Laptop Reviews</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #eef2f5; /* Very light gray, almost white */
+            color: #334155;
+        }
+        .container {
+            max-width: 1280px; /* Slightly wider container */
+            margin: 0 auto;
+            padding: 1.5rem; /* Increased padding */
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.25rem; /* More rounded corners */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05); /* Deeper shadow */
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease; /* More complex hover transition */
+            border: 1px solid transparent; /* subtle border for hover effect */
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.005); /* More pronounced lift and subtle scale */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: #6366f1; /* Light border on hover */
+            background-color: #f8faff; /* Very subtle background change */
+        }
+        .ad-container {
+            background-color: #e0e7ff; /* Lighter, more vibrant blue for ads */
+            border-radius: 1.25rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.1rem; /* Larger text */
+            color: #4338ca; /* Darker blue text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px; /* Increased minimum height for ad space */
+            border: 2px dashed #818cf8; /* More distinct dashed border */
+            font-weight: 600;
+        }
+        .review-image {
+            width: 100%;
+            height: 300px; /* Taller images */
+            object-fit: cover;
+            border-top-left-radius: 1.25rem;
+            border-top-right-radius: 1.25rem;
+            filter: brightness(0.95); /* Slightly less bright for better text overlay perception if any */
+        }
+        .pro-list, .con-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            line-height: 1.6; /* Better line spacing */
+        }
+        .pro-list li {
+            padding-left: 2rem; /* More indent */
+            position: relative;
+            margin-bottom: 0.75rem; /* More space between list items */
+            font-size: 1.05rem; /* Slightly larger text */
+        }
+        .pro-list li:before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 1.25rem; /* Larger emoji */
+            top: 0;
+        }
+        .con-list li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+        .con-list li:before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+            font-size: 1.25rem; /* Larger emoji */
+            top: 0;
+        }
+        .text-gradient-main {
+            background-image: linear-gradient(to right, #ffffff, #e0f7fa); /* Brighter gradient for main title */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+        }
+        nav a {
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #93c5fd; /* Light blue underline */
+            transition: width 0.3s ease-out;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white p-8 shadow-2xl rounded-b-3xl">
+        <div class="container flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-6xl font-extrabold mb-4 md:mb-0 text-gradient-main tracking-wide">ElectraSage</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-8 text-xl font-semibold">
+                    <li><a href="#" class="hover:text-blue-300 transition duration-300 transform hover:scale-105">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition duration-300 transform hover:scale-105">Mobiles</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition duration-300 transform hover:scale-105">Laptops</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition duration-300 transform hover:scale-105">About</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition duration-300 transform hover:scale-105">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Main Content Area for Blog Posts/Reviews -->
+            <section class="md:col-span-2 space-y-10">
+                <!-- AdSense Placeholder 1 (Top of content) -->
+                <div class="ad-container">
+                    <!-- Insert Google AdSense Ad Code Here (e.g., a responsive banner ad) -->
+                    <p class="text-indigo-800 font-bold">Your Ad Here: Top Banner Spot</p>
+                </div>
+
+                <!-- iPhone 15 Pro Max Review -->
+                <article class="card p-8">
+                    <img src="https://placehold.co/800x450/1a202c/ffffff?text=iPhone+15+Pro+Max+Review" alt="iPhone 15 Pro Max Review" class="review-image mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-5">Review: iPhone 15 Pro Max - The Pinnacle of Mobile Innovation?</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        The iPhone 15 Pro Max steps onto the stage promising unparalleled performance, camera capabilities, and a refined design. We've spent an extensive period with Apple's latest flagship to determine if it truly sets a new standard for smartphones.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-3">Pros:</h3>
+                    <ul class="pro-list text-gray-700 mb-6">
+                        <li>**A17 Pro Chip:** Unmatched performance for gaming and demanding applications.</li>
+                        <li>**Dynamic Island & ProMotion Display:** Seamless user experience with fluid animations and adaptive refresh rates.</li>
+                        <li>**Triple Camera System:** Exceptional photo and video quality, especially the new 5x telephoto lens.</li>
+                        <li>**Titanium Design:** Lighter, more durable, and a premium feel.</li>
+                        <li>**USB-C Connectivity:** Finally, a universal port for charging and data transfer.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">Cons:</h3>
+                    <ul class="con-list text-gray-700 mb-6">
+                        <li>**Price:** Remains one of the most expensive smartphones on the market.</li>
+                        <li>**Battery Life:** While good, it's not a significant leap from previous generations under heavy use.</li>
+                        <li>**Software Lock-in:** Still a closed ecosystem, limiting customization for some users.</li>
+                        <li>**USB-C Speed:** Faster speeds only available on Pro models, which is a bit disappointing.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed">
+                        The iPhone 15 Pro Max is an **absolute powerhouse** for those ingrained in the Apple ecosystem or seeking the best mobile camera and performance. While its high price and subtle evolution rather than revolution might deter some, it's undeniably a top-tier smartphone experience.
+                    </p>
+                </article>
+
+                <!-- MacBook Air M3 Review -->
+                <article class="card p-8">
+                    <img src="https://placehold.co/800x450/4f46e5/ffffff?text=MacBook+Air+M3+Review" alt="MacBook Air M3 Review" class="review-image mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-5">Deep Dive: MacBook Air M3 - Fanless Powerhouse for the Masses?</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Apple's latest MacBook Air, powered by the M3 chip, promises impressive performance in a lightweight, fanless design. We've put both the 13-inch and 15-inch models through their paces to see if they live up to the hype for everyday users and creative professionals on the go.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-3">Pros:</h3>
+                    <ul class="pro-list text-gray-700 mb-6">
+                        <li>**M3 Chip Performance:** Excellent speed and efficiency for everyday tasks, light video editing, and even some gaming.</li>
+                        <li>**Incredible Battery Life:** Easily lasts a full workday and beyond, making it ideal for portability.</li>
+                        <li>**Fanless Design:** Completely silent operation, perfect for quiet environments.</li>
+                        <li>**Liquid Retina Display:** Vibrant, sharp, and bright display for work and entertainment.</li>
+                        <li>**Thin & Light Design:** Remarkably portable, especially the 13-inch model.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">Cons:</h3>
+                    <ul class="con-list text-gray-700 mb-6">
+                        <li>**Base Model Limitations:** The 8GB RAM in the base model can be a bottleneck for heavy multitasking.</li>
+                        <li>**Limited Ports:** Still only two Thunderbolt/USB 4 ports, requiring adapters for many peripherals.</li>
+                        <li>**No Active Cooling:** While silent, sustained heavy loads can lead to thermal throttling and reduced performance.</li>
+                        <li>**Not for Heavy-Duty Work:** Not designed for continuous, high-intensity tasks like prolonged 4K video rendering or complex software development.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed">
+                        The MacBook Air M3 is an **outstanding laptop for most users**, offering a fantastic balance of performance, battery life, and portability. It's a prime choice for students, professionals, and anyone seeking a reliable and efficient everyday machine, though power users might consider the Pro lineup for more demanding workflows.
+                    </p>
+                </article>
+
+                <!-- AdSense Placeholder 2 (Middle of content) -->
+                <div class="ad-container">
+                    <!-- Insert Google AdSense Ad Code Here (e.g., a rectangular ad or in-article ad) -->
+                    <p class="text-indigo-800 font-bold">Your Ad Here: In-Article Spot</p>
+                </div>
+
+                <!-- Samsung Galaxy S24 Ultra Review -->
+                <article class="card p-8">
+                    <img src="https://placehold.co/800x450/4299e1/ffffff?text=Galaxy+S24+Ultra+Review" alt="Samsung Galaxy S24 Ultra Review" class="review-image mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-5">Review: Samsung Galaxy S24 Ultra - AI Powerhouse with S Pen</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Samsung's flagship Galaxy S24 Ultra arrives packed with groundbreaking AI features and a refined design, making it a strong contender for the best Android phone. We've thoroughly tested its new capabilities and overall performance.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-3">Pros:</h3>
+                    <ul class="pro-list text-gray-700 mb-6">
+                        <li>**Galaxy AI Suite:** Features like Circle to Search, Live Translate, and Note Assist genuinely enhance productivity.</li>
+                        <li>**Snapdragon 8 Gen 3 for Galaxy:** Blazing fast performance for any task, from intense gaming to AI processing.</li>
+                        <li>**Stunning Flat Display:** The new flat screen with Gorilla Armor is incredibly bright, vibrant, and significantly reduces reflections.</li>
+                        <li>**Versatile Camera System:** Excellent photo and video quality across all lenses, especially the improved 5x telephoto.</li>
+                        <li>**Integrated S Pen:** Unmatched stylus functionality for creativity and note-taking.</li>
+                        <li>**7 Years of Updates:** Long-term software and security support is a major plus.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">Cons:</h3>
+                    <ul class="con-list text-gray-700 mb-6">
+                        <li>**Charging Speed:** Still lags behind some Android competitors.</li>
+                        <li>**Minimal Design Changes:** Design is largely similar to its predecessor, might feel less "new" for S23 Ultra owners.</li>
+                        <li>**AI Features Subscription:** Some advanced AI features may require a subscription after 2025.</li>
+                        <li>**Bulky Form Factor:** Still a large and heavy phone, which might not suit everyone.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed">
+                        The Samsung Galaxy S24 Ultra is a **formidable Android flagship**, truly embracing the AI era. Its top-tier performance, stunning display, and highly versatile camera system, combined with the unique S Pen and extended software support, make it a compelling choice despite its high price and conservative charging speeds.
+                    </p>
+                </article>
+
+                <!-- Dell XPS 16 Review -->
+                <article class="card p-8">
+                    <img src="https://placehold.co/800x450/5a67d8/ffffff?text=Dell+XPS+16+Review" alt="Dell XPS 16 Review" class="review-image mb-8">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-5">First Look: Dell XPS 16 - A Premium Powerhouse with a New Vibe</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Dell's new XPS 16 aims to redefine the premium Windows laptop experience, blending sleek minimalist design with powerful internals. We've taken a deep dive into its features, performance, and user experience.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-green-600 mb-3">Pros:</h3>
+                    <ul class="pro-list text-gray-700 mb-6">
+                        <li>**Stunning OLED Display:** Vibrant colors, deep blacks, and excellent brightness make it ideal for content creation and consumption.</li>
+                        <li>**Powerful Performance:** Up to Intel Core Ultra 9 and NVIDIA RTX 40-series GPUs deliver serious muscle for creative and gaming tasks.</li>
+                        <li>**Premium Build Quality:** Elegant, machined aluminum chassis feels incredibly solid and luxurious.</li>
+                        <li>**Excellent Audio:** Robust speakers with great sound quality.</li>
+                        <li>**Improved Webcam:** Full HD webcam provides clearer video calls.</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">Cons:</h3>
+                    <ul class="con-list text-gray-700 mb-6">
+                        <li>**Controversial Keyboard/Touchpad:** The seamless haptic touchpad and touch-sensitive function row require an adjustment period and lack tactile feedback.</li>
+                        <li>**Limited Port Selection:** Primarily USB-C, necessitating dongles for many legacy peripherals.</li>
+                        <li>**Thermal Throttling Under Load:** Can get warm and experience some performance throttling during sustained heavy workloads due to its thin design.</li>
+                        <li>**High Price:** Commands a premium price tag, placing it in direct competition with high-end machines.</li>
+                        <li>**Weight:** While sleek, it's still a relatively heavy laptop for its class.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed">
+                        The Dell XPS 16 is a **gorgeous and powerful laptop** that makes a statement. It's an excellent choice for professionals who value design, display quality, and strong performance for most tasks. However, potential buyers should be aware of its unique input methods and limited port selection before committing.
+                    </p>
+                </article>
+
+                <!-- AdSense Placeholder 2 (End of content) -->
+                <div class="ad-container">
+                    <!-- Insert Google AdSense Ad Code Here (e.g., a large rectangle ad or native ad) -->
+                    <p class="text-indigo-800 font-bold">Your Ad Here: Bottom Ad Placement</p>
+                </div>
+
+            </section>
+
+            <!-- Sidebar Area for Ads / Latest Posts / Categories -->
+            <aside class="md:col-span-1 space-y-10">
+                <!-- AdSense Placeholder 3 (Sidebar Top) -->
+                <div class="ad-container">
+                    <!-- Insert Google AdSense Ad Code Here (e.g., a vertical skyscraper ad) -->
+                    <p class="text-indigo-800 font-bold">Your Ad Here: Sidebar Top</p>
+                </div>
+
+                <div class="card p-7">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-5">Latest Reviews</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Review: Samsung Galaxy S24 Ultra</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">First Look: Dell XPS 16</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Review: iPhone 15 Pro Max</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Deep Dive: MacBook Air M3</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">UltraPad Air Review: The New Tablet King?</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Gaming Beast: RadeonX Laptop Unboxed</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Budget Brilliance: EcoMobile's Surprise Hit</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Workstation Wonders: ProBook Elite Tested</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Chromebook Champion: PixelBook Go Deep Dive</a></li>
+                    </ul>
+                </div>
+
+                <div class="card p-7">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-5">Categories</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Smartphones</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Gaming Laptops</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Ultrabooks</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Tablets</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Accessories</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition duration-300 hover:underline">Wearables</a></li>
+                    </ul>
+                </div>
+
+                <!-- AdSense Placeholder 4 (Sidebar Bottom) -->
+                <div class="ad-container">
+                    <!-- Insert Google AdSense Ad Code Here (e.g., a native content ad) -->
+                    <p class="text-indigo-800 font-bold">Your Ad Here: Sidebar Bottom</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-10 rounded-t-3xl">
+        <div class="container text-center">
+            <p class="text-lg">&copy; 2025 ElectraSage. All rights reserved.</p>
+            <p class="text-sm mt-3">
+                <a href="#" class="hover:text-blue-400 transition duration-300">Privacy Policy</a> &nbsp;|&nbsp;
+                <a href="#" class="hover:text-blue-400 transition duration-300">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
